@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSCommonLib", "RSCommonLib\RSCommonLib.csproj", "{349F93A8-BE59-4EBB-A9D3-358B41B01FBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{349F93A8-BE59-4EBB-A9D3-358B41B01FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349F93A8-BE59-4EBB-A9D3-358B41B01FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349F93A8-BE59-4EBB-A9D3-358B41B01FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349F93A8-BE59-4EBB-A9D3-358B41B01FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0816B1C0-A839-460D-8C9E-DE5FA466326D}
+	EndGlobalSection
+EndGlobal

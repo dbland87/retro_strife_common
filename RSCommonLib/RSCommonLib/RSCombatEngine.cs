@@ -1,9 +1,8 @@
-﻿using RSCommonModels;
+﻿using System;
 using System.Collections.Generic;
 
-namespace CombatEngine
+namespace RSCommonLib
 {
-
     public static class SpeedResolver
     {
         public static UnitModel GetNextReadyUnit(List<UnitModel> units, int threshold)
