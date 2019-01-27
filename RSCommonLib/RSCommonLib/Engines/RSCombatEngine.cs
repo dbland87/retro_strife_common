@@ -5,9 +5,9 @@ namespace RSCommonLib
 {
     public static class SpeedResolver
     {
-        public static UnitModel GetNextReadyUnit(List<UnitModel> units, int threshold)
+        public static RSUnitModel GetNextReadyUnit(List<RSUnitModel> units, int threshold)
         {
-            UnitModel readyUnit;
+            RSUnitModel readyUnit;
 
             while (units.FindAll(it => it.state.initiative >= threshold).Count < 1)
             {
@@ -32,7 +32,7 @@ namespace RSCommonLib
             return readyUnit;
         }
 
-        private static void incrementInitiative(List<UnitModel> units)
+        private static void incrementInitiative(List<RSUnitModel> units)
         {
             foreach (var unit in units)
             {

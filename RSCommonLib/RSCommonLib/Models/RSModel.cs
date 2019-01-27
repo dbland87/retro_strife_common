@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace RSCommonLib
 {
-    public class UnitModel
+    public class RSUnitModel
     {
-        public event Action<string> UnitDeath;
-        public event Action<UnitState, string> UnitStateChange;
         public int id { get; set; }
         public int prefabId { get; set; }
         public string instanceId { get; set; }
@@ -17,15 +15,22 @@ namespace RSCommonLib
         public int def { get; set; }
         public int magicDef { get; set; }
         public int attack { get; set; }
-        public UnitState state { get; set; }
-        public StatModifiers modifiers { get; set; }
-        public List<UnitAction> actions { get; set; }
+        public RSUnitState state { get; set; }
+        public RSStatModifiers modifiers { get; set; }
+        public List<RSUnitAction> actions { get; set; }
 
-        public UnitModel()
+        // Unit Events
+        public event Action<string> UnitDeath;
+        public event Action<int> LostHp;
+        public event Action<int> GainedHp;
+
+        //public event Action<RSUnitState, string> UnitStateChange;
+
+        public RSUnitModel()
         {
-            this.state = new UnitState();
-            this.actions = new List<UnitAction>();
-            this.modifiers = new StatModifiers();
+            this.state = new RSUnitState();
+            this.actions = new List<RSUnitAction>();
+            this.modifiers = new RSStatModifiers();
         }
 
         public void initState()
@@ -56,23 +61,29 @@ namespace RSCommonLib
         public void applyDamage(int amount)
         {
             state.hp = state.hp - amount;
-            onNewUnitState(state);
-        }
+            LostHp(amount);
 
-        private void onNewUnitState(UnitState state)
-        {
             if (state.hp <= 0)
             {
                 UnitDeath(instanceId);
             }
-            else
-            {
-                UnitStateChange(state, instanceId);
-            }
         }
     }
 
-    public class UnitState
+    //    private void onNewUnitState(RSUnitState state)
+    //    {
+    //        if (state.hp <= 0)
+    //        {
+    //            UnitDeath(instanceId);
+    //        }
+    //        else
+    //        {
+    //            UnitStateChange(state, instanceId);
+    //        }
+    //    }
+    //}
+
+    public class RSUnitState
     {
         public int hp { get; set; }
         public int speed { get; set; }
@@ -83,7 +94,7 @@ namespace RSCommonLib
         public int shield { get; set; }
     }
 
-    public class StatModifiers
+    public class RSStatModifiers
     {
         public int hp { get; set; }
         public int speed { get; set; }
@@ -94,9 +105,9 @@ namespace RSCommonLib
         public int shield { get; set; }
     }
 
-    public class UnitAction
+    public class RSUnitAction
     {
-        public UnitAction(int _id, int _targetId, string _name, int _amount, ActionType _type)
+        public RSUnitAction(int _id, int _targetId, string _name, int _amount, ActionType _type)
         {
             id = _id;
             targetId = _targetId;
